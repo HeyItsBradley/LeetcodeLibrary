@@ -14,3 +14,22 @@ var twoSum = function (nums, target) {
 };
 
 twoSum([2, 7, 11, 15], 9);
+
+
+//Palindrome Number
+
+//How it works: Check to see if given number is palendrone. First make variable to call it num of what the function is recieving. Then convert that number into a string so we can manipulate it. Then split the string at each character so it is now an array with each character at a new index. Then use the array method of reverse to reverse the order of the array. Then we rejoin the array into a string with nothing between them. Then check to see if the string variable is equal to the reverse variable called joined. If yes return true, if not return false. 
+var isPalindrome = function (x) {
+  let num = x;
+  let string = num.toString();
+  let splitString = string.split("");
+  let reversed = splitString.reverse();
+  let joined = reversed.join("");
+  if (string === joined) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+isPalindrome(121);
