@@ -47,3 +47,25 @@ var removeDuplicates = function (nums) {
 };
 
 removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]);
+
+//Sqrt(x)
+
+//How it works: First check edge cases, If the number x is one or zero than return x. Then make a variable called squared and a variable called i. Set them both to 0. Then run a while loop where the condition is as long as x is greater than the squared. Then increment i by 1. then set squared to i * i. Then check if squared is equal to x. If so return i. Once the while loop is done running. Return i-1.
+
+var mySqrt = function (x) {
+  if (x === 1 || x === 0) {
+    return x;
+  }
+  let squared = 0;
+  let i = 0;
+  while (squared < x) {
+    i++;
+    squared = i * i;
+    if (squared === x) {
+      return i;
+    }
+  }
+  return i - 1;
+};
+
+mySqrt(4)
