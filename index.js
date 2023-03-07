@@ -68,4 +68,41 @@ var mySqrt = function (x) {
   return i - 1;
 };
 
-mySqrt(4)
+mySqrt(4);
+
+//Remove Element
+
+//How it works: First start a loop through the given array of nums. Then we check to see if the numbers at that index in the array is equal to the target value, if it is, splice that index and i-- so we check all the values. then return the length of the value.(Note: returning just the nums array at the end does return the correct array but the problem on leetCode wants the length)
+
+var removeElement = function (nums, val) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === val) {
+      nums.splice(i, 1);
+      i--;
+    }
+  }
+  return nums.length;
+};
+
+removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2);
+
+//Move zeroes
+
+//How it works:Set a variable to keep track of the ammount of zeros there are in the array. Then loop through the array and check if the current index is equal to zero. If it is the splice that valie and i-- to make sure we hit all the values in the array. And then also zero count variable ++. After thats done running, make a while loop that depends on the zero counter being greater than zero. In that while loop do array.push(0) to add a zero to the end of the array and zero counter -- to decrease the ammount zero we have to add to the end of the array.
+
+var moveZeroes = function (nums) {
+  let zeroCount = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      nums.splice(i, 1);
+      i--;
+      zeroCount++;
+    }
+  }
+  while (zeroCount > 0) {
+    nums.push(0);
+    zeroCount--;
+  }
+};
+
+moveZeroes([0, 1, 0, 3, 12]);
