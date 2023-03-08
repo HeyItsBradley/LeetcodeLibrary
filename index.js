@@ -130,3 +130,14 @@ var searchInsert = function (nums, target) {
 };
 
 searchInsert([1, 3, 5, 6], 5);
+
+//Plus one
+
+//How it works: We first join the array of numbers using .join. which is also going to be a BigInt value. Then Add 1 using the BigInt. Not my solution
+
+var plusOne = function(digits) {
+  return (BigInt(digits.join("")) + BigInt(1)).toString().split("");
+
+};
+
+plusOne([4,3,2,1])
