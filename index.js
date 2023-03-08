@@ -106,3 +106,27 @@ var moveZeroes = function (nums) {
 };
 
 moveZeroes([0, 1, 0, 3, 12]);
+
+//Search Insert Position
+
+//How it works: First check edge case if target is less than first num in array and return 0 if so. Then loop through array to see if target is in array, if so return the index. Then check to see if target is not in array to see where it would be, we check nums[i] is less than target and if nums[i+1] would be above the target, then return i+1 because that would be the position of the number. If if meets none of those cases, return the nums.length because it would be at the end of the array.
+
+var searchInsert = function (nums, target) {
+  if (target < nums[0]) {
+    return 0;
+  }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target) {
+      return i;
+    }
+  }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] < target && nums[i + 1] > target) {
+      let palce = i + 1;
+      return palce;
+    }
+  }
+  return nums.length;
+};
+
+searchInsert([1, 3, 5, 6], 5);
