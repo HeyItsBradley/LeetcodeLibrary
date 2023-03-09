@@ -135,9 +135,22 @@ searchInsert([1, 3, 5, 6], 5);
 
 //How it works: We first join the array of numbers using .join. which is also going to be a BigInt value. Then Add 1 using the BigInt. Not my solution
 
-var plusOne = function(digits) {
+var plusOne = function (digits) {
   return (BigInt(digits.join("")) + BigInt(1)).toString().split("");
-
 };
 
-plusOne([4,3,2,1])
+plusOne([4, 3, 2, 1]);
+
+//Build Array from Permutation
+
+//How it works: We first create a new blank array variable. Then loop through the given array and push to the new array with the format it wants. Then return the newly built array.
+
+var buildArray = function (nums) {
+  let ans = [];
+  for (let i = 0; i < nums.length; i++) {
+    ans.push(nums[nums[i]]);
+  }
+  return ans;
+};
+
+buildArray([0, 2, 1, 5, 3, 4]);
