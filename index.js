@@ -154,3 +154,13 @@ var buildArray = function (nums) {
 };
 
 buildArray([0, 2, 1, 5, 3, 4]);
+
+//Concatentation of Array
+
+//How it works: Basically all this wants us to do it make a function that makes on array doubled. We can do this by simply running nums.concat(nums) which will concatinate the given array onto the given array, making it double.
+
+var getConcatenation = function (nums) {
+  return nums.concat(nums);
+};
+
+getConcatenation([1, 2, 1]);
