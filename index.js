@@ -131,6 +131,40 @@ var searchInsert = function (nums, target) {
 
 searchInsert([1, 3, 5, 6], 5);
 
+//Plus one
+
+//How it works: We first join the array of numbers using .join. which is also going to be a BigInt value. Then Add 1 using the BigInt. Not my solution
+
+var plusOne = function (digits) {
+  return (BigInt(digits.join("")) + BigInt(1)).toString().split("");
+};
+
+plusOne([4, 3, 2, 1]);
+
+//Build Array from Permutation
+
+//How it works: We first create a new blank array variable. Then loop through the given array and push to the new array with the format it wants. Then return the newly built array.
+
+var buildArray = function (nums) {
+  let ans = [];
+  for (let i = 0; i < nums.length; i++) {
+    ans.push(nums[nums[i]]);
+  }
+  return ans;
+};
+
+buildArray([0, 2, 1, 5, 3, 4]);
+
+//Concatentation of Array
+
+//How it works: Basically all this wants us to do it make a function that makes on array doubled. We can do this by simply running nums.concat(nums) which will concatinate the given array onto the given array, making it double.
+
+var getConcatenation = function (nums) {
+  return nums.concat(nums);
+};
+
+getConcatenation([1, 2, 1]);
+
 //Shuffle the Array
 
 //How it works: First create a new blank array and name it something. Then create a variable that is equal to n. Then run a loop through the array that pushed first i then the new variable index. And also x ++ so increase the variable. Then just return the newly created array.
