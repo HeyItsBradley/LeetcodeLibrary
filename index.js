@@ -181,3 +181,21 @@ var shuffle = function (nums, n) {
 };
 
 shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4);
+
+//Number of good pairs
+
+//How it works: First make a variable set to zero to keep track of the number of good pairs we count. Then we run a double for loop so that we can check one index vs all the other indexes in the array. Then run an if statment within the loops that sets our conditionals, in this case being if nums[i] == nums[j] and that i less than j then increase the number of goodPairs by 1. Then once the loops are done running, return the number of good pairs.
+
+var numIdenticalPairs = function (nums) {
+  let goodPairs = 0;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] == nums[j] && i < j) {
+        goodPairs++;
+      }
+    }
+  }
+  return goodPairs;
+};
+
+numIdenticalPairs([1, 2, 3, 1, 1, 3]);
