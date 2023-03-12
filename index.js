@@ -130,3 +130,20 @@ var searchInsert = function (nums, target) {
 };
 
 searchInsert([1, 3, 5, 6], 5);
+
+//Shuffle the Array
+
+//How it works: First create a new blank array and name it something. Then create a variable that is equal to n. Then run a loop through the array that pushed first i then the new variable index. And also x ++ so increase the variable. Then just return the newly created array.
+
+var shuffle = function (nums, n) {
+  let newArr = [];
+  let x = n;
+  for (let i = 0; i < n; i++) {
+    newArr.push(nums[i]);
+    newArr.push(nums[x]);
+    x++;
+  }
+  return newArr;
+};
+
+shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4);
