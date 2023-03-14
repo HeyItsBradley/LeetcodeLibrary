@@ -199,3 +199,19 @@ var numIdenticalPairs = function (nums) {
 };
 
 numIdenticalPairs([1, 2, 3, 1, 1, 3]);
+
+//Running Sum of 1d Array
+
+//How it works: First create a new empty array. Then scream a global variable for the current sum. Then run a for loop, in the loop add nums[i] to the summ then push the sum to the new array. When the loop is done return the array.
+
+var runningSum = function (nums) {
+  let newArr = [];
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+    newArr.push(sum);
+  }
+  return newArr;
+};
+
+runningSum([1, 2, 3, 4]);
