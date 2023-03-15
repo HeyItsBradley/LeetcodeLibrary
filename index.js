@@ -215,3 +215,28 @@ var runningSum = function (nums) {
 };
 
 runningSum([1, 2, 3, 4]);
+
+//Richest Customer Wealth
+
+//How it Works: First create a number variable set to 0, this will act as the highest account balence and will be returned at the end. Then create another variable set to zero, this will be used as the running sum of the account were in and be used to compare against the highest account. Then run a double for loop the first being based on the accounts array given and then inner loop being based on the length of the account[i] length which is the length of the inner account array indexes. Within the inner loop add the index of the accounts individual arrays to the curret sum and then check if the current sum is bigger than the highest account ballence, if it is the set the new account high to that sum. Then within the outer loop, reset the running sum to 0, we do this so that we reset the running sum every time we move on to a new account. Then once theyre done running, return the highest account variable.
+
+var maximumWealth = function (accounts) {
+  let bigBaller = 0;
+  let currentSum = 0;
+  for (let i = 0; i < accounts.length; i++) {
+    for (let j = 0; j < accounts[i].length; j++) {
+      currentSum += accounts[i][j];
+      if (currentSum > bigBaller) {
+        bigBaller = currentSum;
+      }
+    }
+    currentSum = 0;
+  }
+  return bigBaller;
+};
+
+maximumWealth([
+  [2, 8, 7],
+  [7, 1, 3],
+  [1, 9, 5],
+]);
