@@ -240,3 +240,21 @@ maximumWealth([
   [7, 1, 3],
   [1, 9, 5],
 ]);
+
+//Kid with the greatest number of candies
+
+//How it works: We want to return an array of boolean values based on if you gave an index of the candies array, the value of extra candies, If they would have the highest amount of candies of the array. First we create a new empty array. Then Create a double for loop. Within the first for loop, before the second loop starts, we create a variable with a true value. Then in the second loop we run a check to see if the first loops index on the array, plus the extra candies value would be less than all the other values in the array. If at any point, this becomes true, then set the moreCandy variable to false. Then at the end of the first loop but outside of the second loop, we will push to the new array we made whatever value the more candy variable has. Then return the array we made.
+
+var kidsWithCandies = function (candies, extraCandies) {
+  booArray = [];
+  for (let i = 0; i < candies.length; i++) {
+    let moreCandy = true;
+    for (let x = 0; x < candies.length; x++) {
+      if (candies[i] + extraCandies < candies[x]) {
+        moreCandy = false;
+      }
+    }
+    booArray.push(moreCandy);
+  }
+  return booArray;
+};
