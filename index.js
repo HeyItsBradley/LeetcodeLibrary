@@ -258,3 +258,20 @@ var kidsWithCandies = function (candies, extraCandies) {
   }
   return booArray;
 };
+
+//Maximum Number of Words Found in Sentences
+
+//How it works: We are given an array of strings. First we create a variable that will contain the string with the most ammount of words. Then we run a for loop that will cycle the array. Then create a variable based on the array index that will be an array of the different words, we get this by using the split method and splitting by every space, this creates an array of the words stored in a variable. Then we run a for loop on that array. X will represent the ammount of words in that array and also serves as the loop variable so we dont have to create a seperate one. Note that we set the loop condition to be less than or equal to x to get a correct count. Then in that loop say if x if greater than the high variable, let that variable equal x. This will count the number of words in the array we created and if higher will set a new high. Then return the high variable
+
+var mostWordsFound = function (sentences) {
+  let high = 0;
+  for (let i = 0; i < sentences.length; i++) {
+    let wordArr = sentences[i].split(" ");
+    for (let x = 0; x <= wordArr.length; x++) {
+      if (x > high) {
+        high = x;
+      }
+    }
+  }
+  return high;
+};
