@@ -259,6 +259,8 @@ var kidsWithCandies = function (candies, extraCandies) {
   return booArray;
 };
 
+kidsWithCandies([2, 3, 5, 1, 3], 3);
+
 //Maximum Number of Words Found in Sentences
 
 //How it works: We are given an array of strings. First we create a variable that will contain the string with the most ammount of words. Then we run a for loop that will cycle the array. Then create a variable based on the array index that will be an array of the different words, we get this by using the split method and splitting by every space, this creates an array of the words stored in a variable. Then we run a for loop on that array. X will represent the ammount of words in that array and also serves as the loop variable so we dont have to create a seperate one. Note that we set the loop condition to be less than or equal to x to get a correct count. Then in that loop say if x if greater than the high variable, let that variable equal x. This will count the number of words in the array we created and if higher will set a new high. Then return the high variable
@@ -275,3 +277,29 @@ var mostWordsFound = function (sentences) {
   }
   return high;
 };
+
+mostWordsFound([
+  "alice and bob love leetcode",
+  "i think so too",
+  "this is great thanks very much",
+]);
+
+//How Many Numbers Are Smaller Than the Current Number
+
+//How it works: We want to return an array where each index is how many numbers in the original array are smaller that that number in the original arrays index. We start by creating a blank array variable. Then run a for loop based on the nums length. Then each time that loop runs create a count set to zero. Then run an inner for loop that will run through the array and an if statment that says, if the j index is less than the i index and i and j are not the same. Increase the count by one. This comprares one index of the array to all the others in the array, if they are smaller than the index were comparing, the increase the number of numbers its smaller than. Then, outside of the inner loop push the count to our new array. Then just return the array when the for loops are done.
+
+var smallerNumbersThanCurrent = function (nums) {
+  let newArr = [];
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[j] < nums[i] && j != i) {
+        count++;
+      }
+    }
+    newArr.push(count);
+  }
+  return newArr;
+};
+
+smallerNumbersThanCurrent([8, 1, 2, 2, 3]);
