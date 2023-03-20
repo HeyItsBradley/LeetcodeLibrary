@@ -336,3 +336,30 @@ var createTargetArray = function (nums, index) {
 };
 
 createTargetArray([0, 1, 2, 3, 4], [0, 1, 2, 3, 4]);
+
+//2535. Difference Between Element Sum and Digit Sum of an Array
+
+//How it works: We want to create two sums, one of all the indexes added, and the other of every digit. First create two variables to store the sums. Then run a loop through the given array, this loop will count all digits. So because some indexes like "15" are two digits they will need to be split. We first convert each index to a string. Then split that string to make a new array that splits numbers like "15" into 1 and 5. Then run a loop through that new array, converting each index back into a number using parseInt method. Then adding that number into the sum2 total. Then back in global scope, run a a loop that will simply add each index of the given array into sum1. Then subtract sum1 from sum2, and use a Math method to get the absolute value of the difference. And return it
+
+var differenceOfSum = function (nums) {
+  let sum1 = 0;
+  let sum2 = 0;
+  for (let i = 0; i < nums.length; i++) {
+    let string = nums[i].toString();
+    let split = string.split("");
+
+    for (let j = 0; j < split.length; j++) {
+      let num = parseInt(split[j]);
+
+      sum2 += num;
+    }
+  }
+  for (let x = 0; x < nums.length; x++) {
+    sum1 += nums[x];
+  }
+  let sum = sum1 - sum2;
+  let final = Math.abs(sum);
+  return final;
+};
+
+differenceOfSum([1, 15, 6, 3]);
