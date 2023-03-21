@@ -363,3 +363,22 @@ var differenceOfSum = function (nums) {
 };
 
 differenceOfSum([1, 15, 6, 3]);
+
+//1528. Shuffle String
+
+//How it works: We want to return the string written with each character index matching the value of the indexes in the given array. For examble the first letter of the given string is c, and we want it to be in the 4 index of the new string. We start by created space for a new string called newString. Then we split the string into an array using the split method and store this in a variable. Then we loop through the given array. Then run an inside loop through the split string array. Then we say if i is equal to indices[j] then add that j index of the string array onto our newString variable. This will create a new string in the wanted order. Now we just return the new array.
+
+var restoreString = function (s, indices) {
+  newString = "";
+  let sArr = s.split("");
+  for (let i = 0; i < indices.length; i++) {
+    for (let j = 0; j < sArr.length; j++) {
+      if (i == indices[j]) {
+        newString += sArr[j];
+      }
+    }
+  }
+  return newString;
+};
+
+restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]);
