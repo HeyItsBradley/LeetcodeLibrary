@@ -382,3 +382,33 @@ var restoreString = function (s, indices) {
 };
 
 restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]);
+
+//1773. Count Items Matching a Rule
+
+//How it works:We want to check if any of the arrays in the larger array match the rulekey and the rulevale. We know that the zero index will be the type, the first index will be the color and the last wil be the name. We start by setting a variable count to 0 to keep track of the number of matches we have. Then run a loop through the items array. Then we right three if statment. One for each rulekey because there are three and then check if the index of the inner array assigned to that key matches the given value. If so, increase count by one. Then when loop is done, return the count
+
+var countMatches = function (items, ruleKey, ruleValue) {
+  let count = 0;
+  for (let i = 0; i < items.length; i++) {
+    if (ruleKey == "type" && items[i][0] == ruleValue) {
+      count++;
+    }
+    if (ruleKey == "color" && items[i][1] == ruleValue) {
+      count++;
+    }
+    if (ruleKey == "name" && items[i][2] == ruleValue) {
+      count++;
+    }
+  }
+  return count;
+};
+
+countMatches(
+  [
+    ["phone", "blue", "pixel"],
+    ["computer", "silver", "lenovo"],
+    ["phone", "gold", "iphone"],
+  ],
+  "color",
+  "silver"
+);
