@@ -412,3 +412,28 @@ countMatches(
   "color",
   "silver"
 );
+
+//2367. Number of Arithmetic Triplets
+
+//How it works: We want to see if any 3 unique numbers in the array of nums are arithmetic triplits. The definition is defined in the leetcode problem. First we set a number variable to keep track of the ammount of triploits we have. Then run 3 for loops, this will loop through every combination of 3 indexis. Within the inner loop, create an if statement with the conditions if i < j and j < k and nums[j] - nums[i] == diff and nums[k] - nums[j] == diff. If so increase the count by one. Then return the count.
+
+var arithmeticTriplets = function (nums, diff) {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      for (let k = 0; k < nums.length; k++) {
+        if (
+          i < j &&
+          j < k &&
+          nums[j] - nums[i] == diff &&
+          nums[k] - nums[j] == diff
+        ) {
+          count++;
+        }
+      }
+    }
+  }
+  return count;
+};
+
+arithmeticTriplets([0, 1, 4, 6, 7, 10], 3);
