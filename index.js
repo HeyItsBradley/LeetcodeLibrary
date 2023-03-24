@@ -437,3 +437,25 @@ var arithmeticTriplets = function (nums, diff) {
 };
 
 arithmeticTriplets([0, 1, 4, 6, 7, 10], 3);
+
+//1662. Check If Two String Arrays are Equivalent
+
+//How it works:We are trying to figure out if an array of string put together would equal each other, in the examble ab + c is the same as a + bc. We start by creating two new variables of empty string that will store the conjoined strings. Then we run a for loop through the first given array and add each index onto the first new string. Then do the same for the second array. Then compare the two string and if they are the same, return true, otherwise return false.
+
+var arrayStringsAreEqual = function (word1, word2) {
+  let new1 = "";
+  let new2 = "";
+  for (let i = 0; i < word1.length; i++) {
+    new1 += word1[i];
+  }
+  for (let i = 0; i < word2.length; i++) {
+    new2 += word2[i];
+  }
+  if (new1 === new2) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+arrayStringsAreEqual(["ab", "c"], ["a", "bc"]);
