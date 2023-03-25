@@ -459,3 +459,24 @@ var arrayStringsAreEqual = function (word1, word2) {
 };
 
 arrayStringsAreEqual(["ab", "c"], ["a", "bc"]);
+
+//136. Single Number
+
+//How it works: Were trying to return the number in the array that only appears once. If the length is only 1, return the only element. Then we create an empty object. Then run a for loop through nums. This will store the number along with the ammount of times it appears in the array. Then run another loop and if the freq of that num is 1. Return that num, otherwise return null.
+
+var singleNumber = function (nums) {
+  if (nums.length === 1) {
+    return nums[0];
+  }
+  const freq = {};
+  for (const num of nums) {
+    freq[num] = (freq[num] || 0) + 1;
+  }
+  for (const num of nums) {
+    if (freq[num] === 1) {
+      console.log(num);
+      return num;
+    }
+  }
+  return null; // no unique number found
+};
