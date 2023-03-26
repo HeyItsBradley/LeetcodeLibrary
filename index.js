@@ -480,3 +480,20 @@ var singleNumber = function (nums) {
   }
   return null; // no unique number found
 };
+
+//1816. Truncate Sentence
+
+//How it works:We are given a string and a number to work with. We want to cut the sentence off at k number of words. First we create a new variable that is the given string split by a space using the split string method. This gives us an array of all the words in the sentence. Then we will alocate a variable that will be the new sentence. Then we run a foor loop with the conditional being that i is less than k. This is so that we only add the words to the ammount of less than k. In the loop we will add each index of the array onto the new sentence variable. Then if i is not less than k-1, meaning this will apply to every work exept the last, then add a space onto the new senetence. We do this conditionally because we do not want to add a space to the end of the new sentence. Then return the new setence.
+var truncateSentence = function (s, k) {
+  let arr = s.split(" ");
+  let newS = "";
+  for (let i = 0; i < k; i++) {
+    newS += arr[i];
+    if (i != k - 1) {
+      newS += " ";
+    }
+  }
+  return newS;
+};
+
+truncateSentence("Hello how are you Contestant", 4);
