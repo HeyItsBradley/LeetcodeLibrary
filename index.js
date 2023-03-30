@@ -497,3 +497,21 @@ var truncateSentence = function (s, k) {
 };
 
 truncateSentence("Hello how are you Contestant", 4);
+
+//2006. Count Number of Pairs With Absolute Difference K
+
+//How it works: We want to know how many pairs of numbers in the array nums will equal K with their absolute values. First we create a variable with it being initialized at 0. This will store the ammount of pairs that match the rules. Then we run a double for loop, this will look at every pair of numbers in the array. Then within the two loops, create a variable that stores that absolue value of nums i - nums j , we get the absolute value by using the built it math javascript operatopr abs which takes in two arguments and the minus symbol that will return the absolute value. Then we check to see if that number is equal to k and if i is less than j because that is what the problem deems is a valid matching pair. Then if they are correct, increase the count by 1. Then return the count.
+var countKDifference = function (nums, k) {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      let absNum = Math.abs(nums[i] - nums[j]);
+      if (absNum == k && i < j) {
+        count++;
+      }
+    }
+  }
+  return count;
+};
+
+countKDifference([1, 2, 2, 1], 1);
