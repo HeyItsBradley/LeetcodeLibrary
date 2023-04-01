@@ -181,3 +181,12 @@ var shuffle = function (nums, n) {
 };
 
 shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4);
+
+//344.Reverse String
+
+//How it works:Given an array of single character strings, return it in the reverse order, still in array form. We return s.reverse(), this is an array method that return the array in reverse order.
+var reverseString = function (s) {
+  return s.reverse();
+};
+
+reverseString(["h", "e", "l", "l", "o"]);
