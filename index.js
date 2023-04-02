@@ -524,3 +524,26 @@ var reverseString = function (s) {
 };
 
 reverseString(["h", "e", "l", "l", "o"]);
+
+//412. Fizz Buzz
+
+//How it works:We start by created a new empty array. Then we run a for loop where i will equal 0 because we dont want it to be a one indexed array. We also will set if i is equal or less than n to get the correct ammount of elements. Then we set conditionals within the loop , first seeing if i is divisible by 3 and 5, then only 3, then only 5. If any are true then push the coresponding fizzbuzz string to the new array. If none are true then were going to take i, which is a number and user the toString method to convert to a string and then push that into the new array.
+
+var fizzBuzz = function (n) {
+  let newArr = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      newArr.push("FizzBuzz");
+    } else if (i % 3 === 0) {
+      newArr.push("Fizz");
+    } else if (i % 5 === 0) {
+      newArr.push("Buzz");
+    } else {
+      let string = i.toString();
+      newArr.push(string);
+    }
+  }
+  return newArr;
+};
+
+fizzBuzz(4);
