@@ -547,3 +547,22 @@ var fizzBuzz = function (n) {
 };
 
 fizzBuzz(4);
+
+//1108. Defanging an IP Address
+
+//How it works:We are given an ip adress in a string, we want to convert it to where every "." charcter is replaced by "[.]" instead. So we start by creating a new variable that is an empty string. Then we create an array by using the split method on the address given. This will create a new array where each character of the string is its own new index in the array. Then we loop through the array with the conditional being that i is less than the length of our new array. Then run an if statement where if the index character on the new array does NOT equal a period, add that character onto the new string. Else, meanig it IS a ".", instead add "[.]" to the string. Then once thats done, return the new string.
+
+var defangIPaddr = function (address) {
+  newIp = "";
+  newArr = address.split("");
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[i] !== ".") {
+      newIp += newArr[i];
+    } else {
+      newIp += "[.]";
+    }
+  }
+  return newIp;
+};
+
+defangIPaddr("255.100.50.0");
