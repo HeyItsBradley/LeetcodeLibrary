@@ -566,3 +566,24 @@ var defangIPaddr = function (address) {
 };
 
 defangIPaddr("255.100.50.0");
+
+//1678. Goal Parser Interperation
+
+//how it works: Were given a string and based on the characters, change that into another charcter, see leetcode for more info. First we split the string into an array using the split method then create a new empty string variable. Then run a for loop through the array, if arr[i] is G, add G to the new string,if "()" add "o", if "(al)", add "al", then return the string
+
+var interpret = function (command) {
+  let arr = command.split("");
+  let newS = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == "G") {
+      newS += arr[i];
+    } else if (arr[i] == "(" && arr[i + 1] == ")") {
+      newS += "o";
+    } else if (arr[i] == "(" && arr[i + 1] == "a") {
+      newS += "al";
+    }
+  }
+  return newS;
+};
+
+interpret("G()()()()(al)");
