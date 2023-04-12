@@ -587,3 +587,22 @@ var interpret = function (command) {
 };
 
 interpret("G()()()()(al)");
+
+//2390. Removing Stars From a String
+
+//How it works:We want to remove all the starts in the given string as well as remove the element to the left of the start. Start by created a newArr variable. Then split the string into an array by using the slit method. then loop through the stringArr, if the character were looking at is a star, pop the last element of our new array off. Else push the character were looking at to the new array. Then return the new arr joined back into a string. the reasons we pop if we encounter a star is because we dont want to push the star to the new array, and we pop becuase it will get rid of the letter that would have been to the left of it in the new array.
+
+var removeStars = function (s) {
+  let newArr = [];
+  let sArr = s.split("");
+  for (let i = 0; i < sArr.length; i++) {
+    if (sArr[i] == "*") {
+      newArr.pop();
+    } else {
+      newArr.push(sArr[i]);
+    }
+  }
+  return newArr.join("");
+};
+
+removeStars("leet**cod*e");
