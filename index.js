@@ -606,3 +606,24 @@ var removeStars = function (s) {
 };
 
 removeStars("leet**cod*e");
+
+//1051. Height Checker
+
+//How it works: We are given an array of people standing left to right, the numbers represent each persons height. We want to check if they are lined up from shortest to tallest, and if not, how many people are out of place. So given the array [1,1,4,2,1,3], the expected array of how they should be standing to be [1,1,1,2,4,5]. We start by taking our hights and using the spread operator and assigning it to a new variable, we do this so that we keep the original array intact and create a new one. Then we create a new array eqaul to our coppied array but using the sort method to sort the array into assending order, this is how the people should be lined up. Then we create a variable to keep track of the number of people that are in the wrong spots. Then run a for loop through the given array and check if the index of the given array is NOT equal to the expected index, increase count. When done, return our count.
+
+var heightChecker = function (heights) {
+  let newArr = [...heights];
+  let expected = newArr.sort(function (a, b) {
+    return a - b;
+  });
+  let count = 0;
+
+  for (let i = 0; i < heights.length; i++) {
+    if (heights[i] !== expected[i]) {
+      count++;
+    }
+  }
+  return count;
+};
+
+heightChecker([1, 1, 4, 2, 1, 3]);
