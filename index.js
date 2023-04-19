@@ -627,3 +627,20 @@ var heightChecker = function (heights) {
 };
 
 heightChecker([1, 1, 4, 2, 1, 3]);
+
+//2553. Separate the Digits in an Array
+
+//How it works: We are given an array of numbers and we want to return an array where all the numbers from the original array are split into single sigits. For example the number 13 we want to push into the newArray as 1 and 3. To start we create an empty new array. Then loop through the given array. create a variable that is the current number, into a string, then split the string by "". This gives us a variable that is an array of the number split into single sigits. For example 13 would be [1,3]. Then loop through that variable and push each index into the new array. Once all thats done, return the newArray.
+
+var separateDigits = function (nums) {
+  let newArr = [];
+  for (let i = 0; i < nums.length; i++) {
+    let split = nums[i].toString().split("");
+    for (let j = 0; j < split.length; j++) {
+      newArr.push(split[j]);
+    }
+  }
+  return newArr;
+};
+
+separateDigits([13, 25, 83, 77]);
