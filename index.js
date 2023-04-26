@@ -644,3 +644,24 @@ var separateDigits = function (nums) {
 };
 
 separateDigits([13, 25, 83, 77]);
+
+//169. Majority Element
+
+//How it works: We want to return the number that appears more than have the time in an array. we start by running a loop through the array. Then we store a variable that is the current number were tracking and a variable that is the count of the number were tracking, we start with 1 because of the number weve already checked. Then run an inner loop with an if statment if nums[i] is the same as nums[j] and j does not equal i, increase the count because it means were on the same number, so the frequency would go up. Then outside the inner loop but still in the outer, check if the count is greater than half the length of the array, if it is, return the number.
+
+var majorityElement = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    let current = nums[i];
+    let count = 1;
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] == nums[j] && j != i) {
+        count++;
+      }
+    }
+    if (count > nums.length / 2) {
+      return current;
+    }
+  }
+};
+
+majorityElement([2, 2, 1, 1, 1, 2, 2]);
