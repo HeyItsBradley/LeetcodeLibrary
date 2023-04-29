@@ -665,3 +665,27 @@ var majorityElement = function (nums) {
 };
 
 majorityElement([2, 2, 1, 1, 1, 2, 2]);
+
+//1299.Replace Elements with Greatest Element on Right Side
+
+//how it works: See leetcode for more info. We start with the newarray we will return at the end. Then we loop through the array and within that loop set a greatest variable to 0 because 0 will never be greater than an element in the array. Then run an inner loop with an if statment that if the inner loop index is greater than our greatest variable and j is greater than i, set greatest to the inner loop number were one. Then outside the inner loop but inside the outer, if greatest is still 0, meaning there was no greater number to the right side, then push -1 into our new array. Else, meaining we did find a greater number, push greatest into our new array. Then return new array.
+
+var replaceElements = function (arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let greatest = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] > greatest && j > i) {
+        greatest = arr[j];
+      }
+    }
+    if (greatest == 0) {
+      newArr.push(-1);
+    } else {
+      newArr.push(greatest);
+    }
+  }
+  return newArr;
+};
+
+replaceElements([17, 18, 5, 4, 6, 1]);
