@@ -689,3 +689,20 @@ var replaceElements = function (arr) {
 };
 
 replaceElements([17, 18, 5, 4, 6, 1]);
+
+//219.Contains Duplicate II
+
+//How it works: We run a double for loop so that we can check all pairs within the array. Then in the inner loop, create an if statement with the given conditionals, we also need to add that j is not equal to i so make sure were not looking at the same character. If the conditional is met return true, then return false in the global scope if we didnt hit any nearby duplicates.
+
+var containsNearbyDuplicate = function (nums, k) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] == nums[j] && Math.abs(i - j) <= k && j != i) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+containsNearbyDuplicate([1, 2, 3, 1], 3);
