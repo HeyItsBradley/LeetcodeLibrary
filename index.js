@@ -706,3 +706,17 @@ var containsNearbyDuplicate = function (nums, k) {
 };
 
 containsNearbyDuplicate([1, 2, 3, 1], 3);
+
+//2108. Find First Palindromic String in the Array
+
+//How it works: We want to return this first palendrone we fine, to do this, we run a for loop through the given array, then check if the current string, is equal to the reverse of the string. Note that to find the reverse of the string you have to use the built in, split, reverse, join methods, in that order. If they are equal, return the current string. If the loop goes through everything and does not find a palendrone, return an empty string/
+
+var firstPalindrome = function (words) {
+  for (let i = 0; i < words.length; i++)
+    if (words[i] == words[i].split("").reverse().join("")) {
+      return words[i];
+    }
+  return "";
+};
+
+firstPalindrome(["abc", "car", "ada", "racecar", "cool"]);
