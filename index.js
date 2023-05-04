@@ -720,3 +720,31 @@ var firstPalindrome = function (words) {
 };
 
 firstPalindrome(["abc", "car", "ada", "racecar", "cool"]);
+
+//2586. Count the Number of Vowel Strings in Range
+
+//How it works:We want to count the number of string in this given array that start and end in a vowel AND are in the ranch left to right(inclusive). Start by setting a variable for count and setting it to 0. Then run a foor loop through the array, i will be left because we want to start looking at the array at the given left side, and i will be less than or equal to the right, because its inclusive. Then create a variable that will be the word split up into an array. Then an if statment if the first char of the wordArr is a vowel AND the last char is also a vowel, increase the count by one. Then return the count. Theres probably a better way to do the if statment, maybe a map?
+
+var vowelStrings = function (words, left, right) {
+  let count = 0;
+  for (let i = left; i <= right; i++) {
+    let wordArr = words[i].split("");
+    if (
+      (wordArr[0] == "a" ||
+        wordArr[0] == "e" ||
+        wordArr[0] == "i" ||
+        wordArr[0] == "o" ||
+        wordArr[0] == "u") &&
+      (wordArr[wordArr.length - 1] == "a" ||
+        wordArr[wordArr.length - 1] == "e" ||
+        wordArr[wordArr.length - 1] == "i" ||
+        wordArr[wordArr.length - 1] == "o" ||
+        wordArr[wordArr.length - 1] == "u")
+    ) {
+      count++;
+    }
+  }
+  return count;
+};
+
+vowelStrings(["hey", "aeo", "mu", "ooo", "artro"], 1, 4);
