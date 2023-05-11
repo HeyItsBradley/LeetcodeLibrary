@@ -665,3 +665,21 @@ var majorityElement = function (nums) {
 };
 
 majorityElement([2, 2, 1, 1, 1, 2, 2]);
+
+//2185. Counting Words With a Given Prefix
+
+//How it works: We want to return a count of the ammount of words that start with the given prefix. We start by setting a count variable set to 0. Then run a loop through the words array, split the current word into an array, then splice to to the size of the prefix length. Then compare the two (join the split and sliced array) and if they are equal, increase count. When loop is done, return the count.
+
+var prefixCount = function (words, pref) {
+  let count = 0;
+  for (let i = 0; i < words.length; i++) {
+    let split = words[i].split("");
+    let len = split.slice(0, pref.length);
+    if (len.join("") == pref) {
+      count++;
+    }
+  }
+  return count;
+};
+
+prefixCount(["pay", "attention", "practice", "attend"], "at");
