@@ -666,6 +666,89 @@ var majorityElement = function (nums) {
 
 majorityElement([2, 2, 1, 1, 1, 2, 2]);
 
+//1299.Replace Elements with Greatest Element on Right Side
+
+//how it works: See leetcode for more info. We start with the newarray we will return at the end. Then we loop through the array and within that loop set a greatest variable to 0 because 0 will never be greater than an element in the array. Then run an inner loop with an if statment that if the inner loop index is greater than our greatest variable and j is greater than i, set greatest to the inner loop number were one. Then outside the inner loop but inside the outer, if greatest is still 0, meaning there was no greater number to the right side, then push -1 into our new array. Else, meaining we did find a greater number, push greatest into our new array. Then return new array.
+
+var replaceElements = function (arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let greatest = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] > greatest && j > i) {
+        greatest = arr[j];
+      }
+    }
+    if (greatest == 0) {
+      newArr.push(-1);
+    } else {
+      newArr.push(greatest);
+    }
+  }
+  return newArr;
+};
+
+replaceElements([17, 18, 5, 4, 6, 1]);
+
+//219.Contains Duplicate II
+
+//How it works: We run a double for loop so that we can check all pairs within the array. Then in the inner loop, create an if statement with the given conditionals, we also need to add that j is not equal to i so make sure were not looking at the same character. If the conditional is met return true, then return false in the global scope if we didnt hit any nearby duplicates.
+
+var containsNearbyDuplicate = function (nums, k) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] == nums[j] && Math.abs(i - j) <= k && j != i) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+containsNearbyDuplicate([1, 2, 3, 1], 3);
+
+//2108. Find First Palindromic String in the Array
+
+//How it works: We want to return this first palendrone we fine, to do this, we run a for loop through the given array, then check if the current string, is equal to the reverse of the string. Note that to find the reverse of the string you have to use the built in, split, reverse, join methods, in that order. If they are equal, return the current string. If the loop goes through everything and does not find a palendrone, return an empty string/
+
+var firstPalindrome = function (words) {
+  for (let i = 0; i < words.length; i++)
+    if (words[i] == words[i].split("").reverse().join("")) {
+      return words[i];
+    }
+  return "";
+};
+
+firstPalindrome(["abc", "car", "ada", "racecar", "cool"]);
+
+//2586. Count the Number of Vowel Strings in Range
+
+//How it works:We want to count the number of string in this given array that start and end in a vowel AND are in the ranch left to right(inclusive). Start by setting a variable for count and setting it to 0. Then run a foor loop through the array, i will be left because we want to start looking at the array at the given left side, and i will be less than or equal to the right, because its inclusive. Then create a variable that will be the word split up into an array. Then an if statment if the first char of the wordArr is a vowel AND the last char is also a vowel, increase the count by one. Then return the count. Theres probably a better way to do the if statment, maybe a map?
+
+var vowelStrings = function (words, left, right) {
+  let count = 0;
+  for (let i = left; i <= right; i++) {
+    let wordArr = words[i].split("");
+    if (
+      (wordArr[0] == "a" ||
+        wordArr[0] == "e" ||
+        wordArr[0] == "i" ||
+        wordArr[0] == "o" ||
+        wordArr[0] == "u") &&
+      (wordArr[wordArr.length - 1] == "a" ||
+        wordArr[wordArr.length - 1] == "e" ||
+        wordArr[wordArr.length - 1] == "i" ||
+        wordArr[wordArr.length - 1] == "o" ||
+        wordArr[wordArr.length - 1] == "u")
+    ) {
+      count++;
+    }
+  }
+  return count;
+};
+
+vowelStrings(["hey", "aeo", "mu", "ooo", "artro"], 1, 4);
+
 //2185. Counting Words With a Given Prefix
 
 //How it works: We want to return a count of the ammount of words that start with the given prefix. We start by setting a count variable set to 0. Then run a loop through the words array, split the current word into an array, then splice to to the size of the prefix length. Then compare the two (join the split and sliced array) and if they are equal, increase count. When loop is done, return the count.
